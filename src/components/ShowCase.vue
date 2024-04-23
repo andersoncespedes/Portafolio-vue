@@ -19,20 +19,36 @@ export default defineComponent(
                 <div class="showcase-content-side col-md-7">
                 </div>
                 <div class="showcase-content-principal col-md-5">
-                    <h3>Hola, mi nombre es </h3>
-                    <h2>Anderson Cespedes</h2>
-                    Ingeniero informático con experiencia en el área del
-                    sector de la tecnologia e innovacion. Soy una persona
-                    capaz de desempeñar con éxito las tareas que me
-                    han sido encomendadas de acuerdo con mi
-                    experiencia laboral, sentido del deber y proactividad.
-                    Lo que me permite desempeñar mis funciones de la
-                    mejor manera.
+                    <h4>Hola, mi nombre es </h4>
+                    <h2 style="color:gray;">Anderson Cespedes</h2>
+                    <p style="text-align: justify;">
+                        Ingeniero informático con experiencia en el área del
+                        sector de la tecnologia e innovacion. Soy una persona
+                        capaz de desempeñar con éxito las tareas que me
+                        han sido encomendadas de acuerdo con mi
+                        experiencia laboral, sentido del deber y proactividad.
+                        Lo que me permite desempeñar mis funciones de la
+                        mejor manera.
+                    </p>
                     <hr>
+                    <center>
+                        <h2>Tecnologias</h2>
+                    </center>
+                    
                     <client-only>
-                        <v-icon name="CoGithub " />
-                        <v-icon name="ri-zhihu-fill" />
-                        <v-icon name="fa-CoGithub" />
+                        <v-icon name="bi-github" scale="2" />
+                        <v-icon name="bi-linkedin" scale="2" />
+                        <v-icon name="bi-twitter" scale="2" />
+                        <v-icon name="bi-instagram" scale="2" />
+                    </client-only>
+                    <client-only>
+                        <center>
+                            <v-icon name="bi-github" scale="2" />
+                            <v-icon name="bi-linkedin" scale="2" />
+                            <v-icon name="bi-twitter" scale="2" />
+                            <v-icon name="bi-instagram" scale="2" />
+                        </center>
+
                     </client-only>
                 </div>
             </div>
@@ -51,7 +67,7 @@ export default defineComponent(
     position: relative;
     z-index: 1;
     box-shadow: 0 4px 10px black;
-    border-bottom: 2px black inset;
+    margin-bottom: 20px;
     color: white;
 }
 
