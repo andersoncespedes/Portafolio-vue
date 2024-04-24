@@ -34,22 +34,39 @@ export default defineComponent(
                     <center>
                         <h2>Tecnologias</h2>
                     </center>
-                    
+                    <h3>Frameworks</h3>
                     <client-only>
-                        <v-icon name="bi-github" scale="2" />
-                        <v-icon name="bi-linkedin" scale="2" />
-                        <v-icon name="bi-twitter" scale="2" />
-                        <v-icon name="bi-instagram" scale="2" />
+                        <v-icon name="fa-laravel" scale="2" animation = "float" />
+                        <v-icon name="io-logo-nodejs" scale="2" animation = "float" />
+                        <v-icon name="si-dotnet" scale="2" animation = "float" />
+                        <v-icon name="co-spring" scale="2" animation = "float" />
+                        <v-icon name="co-django" scale="2" animation = "float" />
+                        <v-icon name="io-logo-vue" scale="2" animation = "float" />
+                        <v-icon name="co-angular" scale="2" animation = "float" />
+                        <v-icon name="si-blazor" scale="2" animation = "float" />
+                        <v-icon name="co-bootstrap" scale="2" animation = "float" />
+                        <v-icon name="si-tailwindcss" scale="2" animation = "float"/>
                     </client-only>
+                    <h3>Lenguajes</h3>
                     <client-only>
-                        <center>
-                            <v-icon name="bi-github" scale="2" />
-                            <v-icon name="bi-linkedin" scale="2" />
-                            <v-icon name="bi-twitter" scale="2" />
-                            <v-icon name="bi-instagram" scale="2" />
-                        </center>
+                        <v-icon name="si-csharp" scale="2" animation = "float" />
+                        <v-icon name="co-js" scale="2" animation = "float"/>
+                        <v-icon name="co-php" scale="2" animation = "float"/>
+                        <v-icon name="co-python" scale="2" animation = "float"/>
+                        <v-icon name="la-html5" scale="2" animation = "float"/>
+                        <v-icon name="io-logo-css3" scale="2" animation = "float"/>
+                        <v-icon name="fa-database" scale="2" animation = "float"/>
+                        <v-icon name="la-java" scale="2" animation = "float"/>
 
                     </client-only>
+                    <h3>Gestores de Base de Datos</h3>
+                    <client-only>
+                        <v-icon name="co-mysql" scale="2" animation = "float"/>
+                        <v-icon name="si-microsoftsqlserver" scale="2" animation = "float"/>
+                        <v-icon name="co-postgresql" scale="2" animation = "float"/>
+                        <v-icon name="co-mongodb" scale="2" animation = "float"/>
+                    </client-only>
+
                 </div>
             </div>
 

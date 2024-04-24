@@ -6,16 +6,13 @@ import NavBar from './components/NavBar.vue';
 </script>
 <template>
 
-  <NavBar/>
+  <NavBar />
   <ShowCase />
   <div class="container">
-    <HelloWorld msg="Hola" />
     <Carrusel />
   </div>
 
 </template>
 
 
-<style setup>
-
-</style>
+<style setup></style>

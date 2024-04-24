@@ -2,10 +2,10 @@
     <header :class="{ 'sticky': isSticky }">
       <nav>
         <ul>
-          <li><a href="#">Inicio</a></li>
-          <li><a href="#">Servicios</a></li>
-          <li><a href="#">Acerca de</a></li>
-          <li><a href="#">Contacto</a></li>
+          <li><a href="#"><v-icon name="fa-home" scale="1.5"></v-icon> Inicio</a></li>
+          <li><a href="#"><v-icon name="si-codeproject" scale="1.5"></v-icon> Proyectos</a></li>
+          <li><a href="#"><v-icon name="fa-user-tie" scale="1.5"></v-icon> Acerca de</a></li>
+          <li><a href="#"><v-icon name="md-contacts" scale="1.5"></v-icon> Contacto</a></li>
         </ul>
       </nav>
     </header>
