@@ -4,10 +4,10 @@ import App from './App.vue'
 import { OhVueIcon, addIcons } from "oh-vue-icons";
 import { FaFlag, RiZhihuFill, BiGithub, BiLinkedin, BiTwitter, BiInstagram, FaLaravel, CoJs, CoPhp, 
     IoLogoNodejs, SiDotnet, CoSpring, CoDjango, IoLogoVue, 
-    CoAngular, SiBlazor, CoBootstrap, SiTailwindcss, SiCsharp, CoPython, LaJava ,
-    LaHtml5, IoLogoCss3, FaDatabase, CoMysql, CoPostgresql, SiMicrosoftsqlserver, CoMongodb , FaHome, SiCodeproject,FaUserTie ,  MdContacts         } from "oh-vue-icons/icons";
+    CoAngular, SiBlazor, CoBootstrap, SiTailwindcss, SiCsharp, CoPython, LaJava ,FaRocket ,
+    LaHtml5, IoLogoCss3, FaDatabase, CoMysql, CoPostgresql, SiMicrosoftsqlserver,SiTypescript ,MdRocketRound , CoMongodb , FaHome, SiCodeproject,FaUserTie ,  MdContacts         } from "oh-vue-icons/icons";
 
-addIcons(FaFlag, RiZhihuFill, BiGithub, BiLinkedin, BiTwitter, BiInstagram, FaLaravel,FaUserTie, CoJs, SiCodeproject ,MdContacts,
+addIcons(FaFlag, RiZhihuFill, BiGithub, BiLinkedin,FaRocket, BiTwitter,SiTypescript , BiInstagram,MdRocketRound , FaLaravel,FaUserTie, CoJs, SiCodeproject ,MdContacts,
     CoPhp, IoLogoNodejs, SiDotnet, CoSpring, CoDjango, IoLogoVue, CoMongodb,
     FaHome , LaJava ,
     CoAngular, SiBlazor,CoBootstrap , SiTailwindcss, SiCsharp, CoPython, LaHtml5, IoLogoCss3, FaDatabase, CoMysql, CoPostgresql, SiMicrosoftsqlserver   );

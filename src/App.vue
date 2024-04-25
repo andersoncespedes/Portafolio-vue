@@ -8,9 +8,8 @@ import NavBar from './components/NavBar.vue';
 
   <NavBar />
   <ShowCase />
-  <div class="container">
+
     <Carrusel />
-  </div>
 
 </template>
 
