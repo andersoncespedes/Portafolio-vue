@@ -1,12 +1,12 @@
 <template>
-  <div class = "carrusel_cont">
+  <div class = "carrusel_cont" v-scroll="handleScrollCarrusel">
     <div class = "title-carrusel">
       <center>
         <h2><v-icon name="md-rocket-round" scale="2"></v-icon>Proyectos<v-icon name="md-rocket-round" scale="2"></v-icon></h2>
       </center>
     </div>
       
-    <Carousel :itemsToShow="2" :wrapAround="true" :transition="500" class="carrusel">
+    <Carousel :itemsToShow="2" :wrapAround="true" :transition="500" class="carrusel"  >
       <Slide v-for="slide in imgs" :key="slide">
         <div class="carousel__item">
           <img :src="slide.imagen" style="max-width: 400px; min-width: 400px; min-height: 200px; max-height: 200px;">
@@ -27,8 +27,20 @@ import { Carousel, Pagination, Slide } from 'vue3-carousel'
 
 import 'vue3-carousel/dist/carousel.css'
 import MillGame from '@/assets/Img/MillGame.png';
+
 export default defineComponent({
   name: 'Autoplay',
+  methods:{
+    handleScrollCarrusel: function (evt, el) {
+      if (window.scrollY > 100) {
+        el.setAttribute(
+          'style',
+          'opacity: 1; transform: translate3d(0, -10px, 0)'
+        )
+      }
+      return window.scrollY > 100
+    }
+  },
   data() {
     return {
       imgs: [
@@ -67,6 +79,8 @@ export default defineComponent({
   padding: 20px;
   color:white;
   height: 70vh;
+  opacity: 0;
+  transition: 1.5s all cubic-bezier(0.39, 0.575, 0.565, 1);
   background: linear-gradient(-65deg, rgb(43, 75, 255) 20% , rgb(252, 62, 62) 80%);
 }
 .carousel__slide {

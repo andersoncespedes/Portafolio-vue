@@ -12,5 +12,15 @@ addIcons(FaFlag, RiZhihuFill, BiGithub, BiLinkedin,FaRocket, BiTwitter,SiTypescr
     FaHome , LaJava ,
     CoAngular, SiBlazor,CoBootstrap , SiTailwindcss, SiCsharp, CoPython, LaHtml5, IoLogoCss3, FaDatabase, CoMysql, CoPostgresql, SiMicrosoftsqlserver   );
 const app = createApp(App);
+app.directive('scroll', {
+    mounted(el, binding) {
+        let f = function (evt) {
+          if (binding.value(evt, el)) {
+            window.removeEventListener('scroll', f)
+          }
+        }
+        window.addEventListener('scroll', f)
+      }
+});
 app.component("v-icon", OhVueIcon);
 app.mount('#app')

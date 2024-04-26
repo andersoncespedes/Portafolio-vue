@@ -10,16 +10,45 @@ export default defineComponent(
             return {
                 perfil: Perfil
             }
-        }
+        },
+        mounted() {
+            this.handleScrollShowcase();
+        },
+        methods: {
+            handleScrollShowcase: function (evt, el) {
+                const showcaseElement = this.$refs.showcase;
+                showcaseElement.setAttribute(
+                    'style',
+                    'opacity: 1; transform: translate3d(0, -10px, 0)'
+                )
+
+                return window.scrollY > 100
+            }
+        },
     }
+
 )
 </script>
 <template>
-    <div class="showcase">
+    <div class="showcase" ref="showcase" v-show="isVisible">
         <div class="container">
             <div class="row">
-                <div class="showcase-content-side col-md-7 m-auto d-flex justify-content-center">
-                    <img :src="perfil" class="img-fluid image-anima" style = "min-width: 400px;">
+                <div class="showcase-content-side col-md-7 m-auto d-flex flex-wrap justify-content-center">
+                    <img :src="perfil" class="img-fluid image-anima" style="min-width: 400px; max-height: 500px;"><br>
+                    <div class="w-100">
+                        <client-only>
+                            <center>
+                                <ul class="showcase__socialmedia">
+                                    <li><v-icon name="bi-github" scale="2" /></li>
+                                    <li><v-icon name="bi-linkedin" scale="2" /></li>
+                                    <li><v-icon name="bi-twitter" scale="2" /></li>
+                                    <li><v-icon name="bi-instagram" scale="2" /></li>
+
+                                </ul>
+                            </center>
+                        </client-only>
+                    </div>
+
                 </div>
                 <div class="showcase-content-principal col-md-5">
                     <h4>Hola, mi nombre es </h4>
@@ -27,7 +56,7 @@ export default defineComponent(
                     <p style="text-align: justify;">
                         Ingeniero informático con experiencia en el área del
                         sector de la tecnologia e innovacion. Estoy en capacidad de desempeñar
-                         con éxito las tareas que me
+                        con éxito las tareas que me
                         han sido encomendadas de acuerdo con mi
                         experiencia laboral, sentido del deber y proactividad.
                         lo que me ha permitido desarrollar funciones de una manera más óptima
@@ -79,14 +108,24 @@ export default defineComponent(
 <style setup>
 .showcase {
     background: url("../assets/Img/dibujos-vintage-aesthetic-18.webp");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: 100%;
     min-height: 100vh;
     width: 100%;
+    transition: 1.5s all cubic-bezier(0.39, 0.575, 0.565, 1);
     padding: 1rem;
     background-position: 100%;
+    opacity: 0;
     padding-top: 2rem;
     position: relative;
     z-index: 1;
     color: white;
+}
+
+.showcase__socialmedia li {
+    display: inline-flex;
+    padding: 5px;
 }
 
 .showcase::before {
@@ -107,8 +146,9 @@ export default defineComponent(
     font-family: Arial, Helvetica, sans-serif;
     border-radius: 14px;
 }
-.image-anima{
-    animation-name:PerfilAnimation ;
+
+.image-anima {
+    animation-name: PerfilAnimation;
     animation-duration: 3s;
     animation-iteration-count: infinite;
     transition: 300ms all ease;
@@ -117,17 +157,19 @@ export default defineComponent(
 .showcase-content-principal {
     margin: auto;
 }
-@keyframes PerfilAnimation 
-{
-    0%{
-        margin-right:0 ;
+
+@keyframes PerfilAnimation {
+    0% {
+        margin-right: 0;
     }
-    50%{
-        margin-right:20px ;
+
+    50% {
+        margin-right: 20px;
 
     }
-    100%{
-        margin-right:0 ;
+
+    100% {
+        margin-right: 0;
     }
 }
 </style>
