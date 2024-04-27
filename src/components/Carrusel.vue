@@ -1,16 +1,17 @@
 <template>
-  <div class = "carrusel_cont" v-scroll="handleScrollCarrusel">
-    <div class = "title-carrusel">
+  <div class="carrusel_cont" v-scroll="handleScrollCarrusel">
+    <div class="title-carrusel">
       <center>
-        <h2><v-icon name="md-rocket-round" scale="2"></v-icon>Proyectos<v-icon name="md-rocket-round" scale="2"></v-icon></h2>
+        <h2><v-icon name="md-rocket-round" scale="2"></v-icon>Proyectos<v-icon name="md-rocket-round"
+            scale="2"></v-icon></h2>
       </center>
     </div>
-      
-    <Carousel :itemsToShow="2" :wrapAround="true" :transition="500" class="carrusel"  >
+
+    <Carousel :itemsToShow="2" :wrapAround="true" :transition="500" class="carrusel">
       <Slide v-for="slide in imgs" :key="slide">
-        <div class="carousel__item">
+        <div class="carousel__item" v-on:click="ShowData" :data-nombre="slide.nombre" :data-imagen="slide.imagen">
           <img :src="slide.imagen" style="max-width: 400px; min-width: 400px; min-height: 200px; max-height: 200px;">
-          <h3 >{{ slide.nombre }}</h3>
+          <h3>{{ slide.nombre }}</h3>
         </div>
       </Slide>
 
@@ -18,6 +19,10 @@
         <Pagination />
       </template>
     </Carousel>
+    <div class="item__showing" ref="item__showing">
+      <h2>{{ showItem.nombre }}</h2>
+      <img :src="showItem.imagen" alt="">
+    </div>
   </div>
 </template>
 
@@ -30,7 +35,35 @@ import MillGame from '@/assets/Img/MillGame.png';
 
 export default defineComponent({
   name: 'Autoplay',
-  methods:{
+  methods: {
+    ShowData: function (ev, el) {
+      const node = ev.target.parentNode.dataset;
+      this.showItem.nombre = node.nombre;
+      this.showItem.imagen = node.imagen;
+      this.$refs.item__showing.style.transition = "none";
+      this.$refs.item__showing.parentNode.style.height = "70vh";
+      new Promise(
+        (resolve, reject) => {
+          this.$refs.item__showing.style.position = "absolute";
+          this.$refs.item__showing.style.opacity = "0";
+          setTimeout(() => {
+            resolve();
+          }, 1000);
+        }
+      )
+        .then(e => {
+          this.$refs.item__showing.parentNode.style.height = "150vh";
+          setTimeout(() => {
+            this.$refs.item__showing.style.position = "relative";
+            this.$refs.item__showing.style.opacity = "1";
+            this.$refs.item__showing.style.transition = "1s all ease";
+          }, 1000);
+
+
+        })
+
+
+    },
     handleScrollCarrusel: function (evt, el) {
       if (window.scrollY > 100) {
         el.setAttribute(
@@ -43,14 +76,18 @@ export default defineComponent({
   },
   data() {
     return {
+      showItem: {
+        nombre: null,
+        imagen: null
+      },
       imgs: [
         {
-          nombre:"MillGame",
-          imagen:MillGame,
+          nombre: "MillGame",
+          imagen: MillGame,
         },
         {
-          nombre:"Al Azar",
-          imagen:"https://i.blogs.es/e239cb/crear-wallpapers-portada/1366_2000.jpeg"
+          nombre: "Al Azar",
+          imagen: "https://i.blogs.es/e239cb/crear-wallpapers-portada/1366_2000.jpeg"
         }
       ]
     };
@@ -64,30 +101,47 @@ export default defineComponent({
 </script>
 
 <style>
-.carrusel{
+.carrusel {
   background: rgba(225, 225, 225, 0.2);
   padding: 10px;
-  margin:0;
+  margin: 0;
   border-radius: 10px;
-  box-shadow: 8px 8px 8px black;
+  box-shadow: 8px 8px 0 black;
+  transition: .5s all cubic-bezier(0.39, 0.575, 0.565, 1);
 
 }
-.title-carrusel h2{
+
+.item__showing img {
+  max-width: 100%;
+  max-height: 400px
+}
+
+.item__showing {
+  position: absolute;
+  opacity: 0;
+  margin-top: 10px;
+  padding: 2rem;
+  transition: 2s all ease;
+}
+
+.title-carrusel h2 {
   font-size: 60px;
 }
-.carrusel_cont{
+
+.carrusel_cont {
   padding: 20px;
-  color:white;
-  height: 70vh;
+  color: white;
   opacity: 0;
   transition: 1.5s all cubic-bezier(0.39, 0.575, 0.565, 1);
-  background: linear-gradient(-65deg, rgb(43, 75, 255) 20% , rgb(252, 62, 62) 80%);
+  background: linear-gradient(-65deg, rgb(43, 75, 255) 20%, rgb(252, 62, 62) 80%);
 }
+
 .carousel__slide {
   padding: 5px;
 }
-.carousel__item{
- 
+
+.carousel__item {
+
   border: 5px solid black;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -95,8 +149,10 @@ export default defineComponent({
   padding: 10px;
   background-color: white;
   color: black;
+  cursor: pointer;
 
 }
+
 .carousel__viewport {
   perspective: 2000px;
 }
