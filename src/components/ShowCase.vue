@@ -33,7 +33,7 @@ export default defineComponent(
     <div class="showcase" ref="showcase" v-show="isVisible">
         <div class="container">
             <div class="row">
-                <div class="showcase-content-side col-md-7 m-auto d-flex flex-wrap justify-content-center">
+                <div class="showcase-content-side col-md-7 col-sm-12 m-auto d-flex flex-wrap justify-content-center">
                     <img :src="perfil" class="img-fluid image-anima" style="min-width: 400px; max-height: 500px;"><br>
                     <div class="w-100">
                         <client-only>
@@ -109,11 +109,11 @@ export default defineComponent(
 .showcase {
     background: url("../assets/Img/dibujos-vintage-aesthetic-18.webp");
     background-repeat: no-repeat;
-    background-size: 100%;
-    background-position: 100%;
+    background-size: cover;
     min-height: 100vh;
     width: 100%;
-    transition: 1.5s all cubic-bezier(0.39, 0.575, 0.565, 1);
+    background-attachment: fixed; 
+    background-position: center center;
     padding: 1rem;
     background-position: 100%;
     opacity: 0;
@@ -156,6 +156,18 @@ export default defineComponent(
 
 .showcase-content-principal {
     margin: auto;
+}
+
+@media screen and (max-width: 800px) {
+    .showcase {
+        background-repeat: no-repeat;
+        background-size: cover;
+        /* ajustar el tamaño para cubrir el contenedor */
+        background-repeat: no-repeat;
+        background-position: left top;
+        /* mostrar la parte superior izquierda */
+        /* otras propiedades de estilo */
+    }
 }
 
 @keyframes PerfilAnimation {

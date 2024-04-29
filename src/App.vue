@@ -1,6 +1,8 @@
 <script setup>
 import Carrusel from './components/Carrusel.vue';
 import ShowCase from './components/ShowCase.vue';
+import About from './components/About.vue';
+
 import { onUnmounted, ref, defineComponent } from 'vue';
 
 const isSticky = ref(false);
@@ -8,7 +10,6 @@ const isSticky = ref(false);
 const handleScroll = () => {
   isSticky.value = window.pageYOffset > 0;
 };
-
 const scrollToElement = (ev) => {
   ev.preventDefault();
   const target = ev.target.getAttribute('name'); // Obtener el nombre del elemento de forma correcta
@@ -34,32 +35,42 @@ window.addEventListener('scroll', handleScroll);
 // Elimina el evento de scroll cuando el componente se destruye
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll);
+
 });
 </script>
 <template>
 
   <header :class="{ 'sticky': isSticky }">
-    <nav>
+    <b-navbar toggleable="sm" class="navbar">
       <ul>
-        <li><a href="" v-on:click="scrollToElement" name="inicio"><v-icon name="fa-home" scale="1.5"></v-icon>Inicio</a>
+        <li>
+          <RouterLink to="/"><v-icon name="fa-home" scale="1.5"></v-icon>Inicio</RouterLink>
         </li>
-        <li><a href="" v-on:click="scrollToElement" name="proyectos"><v-icon name="si-codeproject"
-              scale="1.5"></v-icon>Proyectos</a>
+        <li>
+          <RouterLink to="/projects"><v-icon name="si-codeproject" scale="1.5"></v-icon>Proyectos</RouterLink>
         </li>
-        <li><a href="#"><v-icon name="fa-user-tie" scale="1.5"></v-icon> Acerca de</a></li>
+        <li>
+          <RouterLink to=""><v-icon name="fa-user-tie" scale="1.5"></v-icon> Acerca de</RouterLink>
+        </li>
         <li><a href="#"><v-icon name="md-contacts" scale="1.5"></v-icon> Contacto</a></li>
       </ul>
-    </nav>
+    </b-navbar>
   </header>
-  <ShowCase id="inicio" />
 
-  <Carrusel id="Projectos" />
+  <router-view v-slot="{ Component, route }">
+    <component :is="Component" :key="route.path" />
+</router-view>
+
+  <!--<ShowCase id="inicio" />--->
+
+  <!--<Carrusel id="Projectos" />--->
+  <!--<About/>--->
 
 </template>
 
 
 <style setup>
-nav {
+.navbar {
   background: linear-gradient(to right, rgb(43, 75, 255), rgb(252, 62, 62));
   color: white;
   padding: 10px 20px;
@@ -67,7 +78,6 @@ nav {
 }
 
 header {
-  box-shadow: 0 0.2em 0.2em black;
   transition: 300ms all ease;
 }
 
@@ -105,5 +115,11 @@ a:hover {
 
 .sticky ul li {
   padding: 5px;
+}
+
+@media screen and (max-width: 800px) {
+  header nav ul li {
+    font-size: 13px;
+  }
 }
 </style>
