@@ -1,0 +1,111 @@
+@media screen and (max-width: 800px) {
+    .item__showing {
+      flex-wrap: wrap;
+    }
+  
+    .item__showing .imagen-show img {
+      max-width: 100%;
+      max-height: 300px;
+      min-height: 300px;
+      min-width: 100%;
+    }
+  
+    .item__showing .imagen-show {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  
+  .descripcion {
+    padding: 10px;
+  }
+  
+  .carrusel {
+    background: rgba(225, 225, 225, 0.2);
+    padding: 10px;
+    margin: 0;
+    border-radius: 10px;
+    box-shadow: 8px 8px 0 black;
+  }
+  
+  .item__showing img {
+    max-width: 800px;
+    max-height: 400px;
+    min-height: 400px;
+    min-width: 800px;
+    border: 1.2rem solid black;
+    border-radius: 10px;
+  }
+  
+  .item__showing {
+    opacity: 1;
+    display: flex;
+    margin-top: 10px;
+    padding: 2rem;
+    transition: 2s all ease;
+  }
+  
+  .title-carrusel h2 {
+    font-size: 60px;
+  }
+  
+  .carrusel_cont {
+    padding: 20px;
+    color: white;
+  
+    transition: 1.5s all cubic-bezier(0.39, 0.575, 0.565, 1);
+    background: black
+  }
+  
+  .carousel__slide {
+    padding: 5px;
+  }
+  
+  .carousel__item {
+  
+    border: 5px solid black;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+  
+  }
+  
+  .carousel__viewport {
+    perspective: 2000px;
+  }
+  
+  .carousel__track {
+    transform-style: preserve-3d;
+  }
+  
+  .carousel__slide--sliding {
+    transition: 0.5s;
+  }
+  
+  .carousel__slide {
+    opacity: 0.9;
+    transform: rotateY(-20deg) scale(0.9);
+  }
+  
+  .carousel__slide--active~.carousel__slide {
+    transform: rotateY(20deg) scale(0.9);
+  }
+  
+  .carousel__slide--prev {
+    opacity: 1;
+    transform: rotateY(-10deg) scale(0.95);
+  }
+  
+  .carousel__slide--next {
+    opacity: 1;
+    transform: rotateY(10deg) scale(0.95);
+  }
+  
+  .carousel__slide--active {
+    opacity: 1;
+    transform: rotateY(0) scale(1.1);
+  }

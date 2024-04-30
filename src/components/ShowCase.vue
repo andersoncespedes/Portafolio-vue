@@ -39,10 +39,10 @@ export default defineComponent(
                         <client-only>
                             <center>
                                 <ul class="showcase__socialmedia">
-                                    <li><v-icon name="bi-github" scale="2" /></li>
-                                    <li><v-icon name="bi-linkedin" scale="2" /></li>
-                                    <li><v-icon name="bi-twitter" scale="2" /></li>
-                                    <li><v-icon name="bi-instagram" scale="2" /></li>
+                                    <li><a href="https://github.com/andersoncespedes"><v-icon name="bi-github" scale="2" /></a> </li>
+                                    <li><a href="https://www.linkedin.com/in/anderson-cespedes-545166260"><v-icon name="bi-linkedin" scale="2" /></a></li>
+                                    <li><a href=""><v-icon name="bi-twitter" scale="2" /></a></li>
+                                    <li><a href=""><v-icon name="bi-instagram" scale="2" /></a></li>
 
                                 </ul>
                             </center>
@@ -105,83 +105,11 @@ export default defineComponent(
 
     </div>
 </template>
-<style setup>
+<style src="./ShowCase.vue.css"></style>
+<style>
 .showcase {
     background: url("../assets/Img/dibujos-vintage-aesthetic-18.webp");
-    background-repeat: no-repeat;
-    background-size: cover;
-    min-height: 100vh;
-    width: 100%;
-    background-attachment: fixed; 
-    background-position: center center;
-    padding: 1rem;
-    background-position: 100%;
-    opacity: 0;
-    padding-top: 2rem;
-    position: relative;
-    z-index: 1;
-    color: white;
-}
 
-.showcase__socialmedia li {
-    display: inline-flex;
-    padding: 5px;
-}
-
-.showcase::before {
-    content: "";
-    z-index: -1;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    /* Negro con 50% de opacidad */
-    /* Negro con 50% de opacidad */
-}
-
-.showcase-content-side {
-    font-size: 1rem;
-    font-family: Arial, Helvetica, sans-serif;
-    border-radius: 14px;
-}
-
-.image-anima {
-    animation-name: PerfilAnimation;
-    animation-duration: 3s;
-    animation-iteration-count: infinite;
-    transition: 300ms all ease;
-}
-
-.showcase-content-principal {
-    margin: auto;
-}
-
-@media screen and (max-width: 800px) {
-    .showcase {
-        background-repeat: no-repeat;
-        background-size: cover;
-        /* ajustar el tamaño para cubrir el contenedor */
-        background-repeat: no-repeat;
-        background-position: left top;
-        /* mostrar la parte superior izquierda */
-        /* otras propiedades de estilo */
-    }
-}
-
-@keyframes PerfilAnimation {
-    0% {
-        margin-right: 0;
-    }
-
-    50% {
-        margin-right: 20px;
-
-    }
-
-    100% {
-        margin-right: 0;
-    }
 }
 </style>
+
