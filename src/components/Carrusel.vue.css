@@ -33,7 +33,7 @@
     max-height: 400px;
     min-height: 400px;
     min-width: 800px;
-    border: 1.2rem solid black;
+    border: .5rem solid black;
     border-radius: 10px;
   }
   
@@ -54,7 +54,7 @@
     color: white;
   
     transition: 1.5s all cubic-bezier(0.39, 0.575, 0.565, 1);
-    background: black
+    background: linear-gradient(to right, rgb(43, 75, 255), rgb(252, 62, 62));
   }
   
   .carousel__slide {

@@ -50,7 +50,7 @@ onUnmounted(() => {
           <RouterLink to="/projects"><v-icon name="si-codeproject" scale="1.5"></v-icon>Proyectos</RouterLink>
         </li>
         <li>
-          <RouterLink to=""><v-icon name="fa-user-tie" scale="1.5"></v-icon> Acerca de</RouterLink>
+          <RouterLink to="/about"><v-icon name="fa-user-tie" scale="1.5"></v-icon> Acerca de</RouterLink>
         </li>
         <li><a href="#"><v-icon name="md-contacts" scale="1.5"></v-icon> Contacto</a></li>
       </ul>

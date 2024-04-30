@@ -39,8 +39,8 @@ export default defineComponent(
                         <client-only>
                             <center>
                                 <ul class="showcase__socialmedia">
-                                    <li><a href="https://github.com/andersoncespedes"><v-icon name="bi-github" scale="2" /></a> </li>
-                                    <li><a href="https://www.linkedin.com/in/anderson-cespedes-545166260"><v-icon name="bi-linkedin" scale="2" /></a></li>
+                                    <li><a target="_blank" href="https://github.com/andersoncespedes"><v-icon name="bi-github" scale="2" /></a> </li>
+                                    <li><a target="_blank" href="https://www.linkedin.com/in/anderson-cespedes-545166260"><v-icon name="bi-linkedin" scale="2" /></a></li>
                                     <li><a href=""><v-icon name="bi-twitter" scale="2" /></a></li>
                                     <li><a href=""><v-icon name="bi-instagram" scale="2" /></a></li>
 

@@ -6,7 +6,9 @@ import 'vue3-carousel/dist/carousel.css'
 import MillGame from '@/assets/Img/MillGame.png';
 import starbucks from '@/assets/Img/starbucks.png';
 import Pokemon from '@/assets/Img/Pokemon.png';
-import RickAndMorty from "@/assets/Img/RickAndMorty.png"
+import RickAndMorty from "@/assets/Img/RickAndMorty.png";
+import Cabellum from "@/assets/Img/Cabellum.png";
+
 
 export default defineComponent({
   name: 'Autoplay',
@@ -16,7 +18,7 @@ export default defineComponent({
       this.showItem.nombre = node.nombre;
       this.showItem.imagen = node.imagen;
       this.showItem.descripcion = node.descripcion;
-
+      this.showItem.lenguajes = node.lenguajes.split(",");
       this.$refs.item__showing.style.transition = "none";
       new Promise(
         (resolve, reject) => {
@@ -42,27 +44,43 @@ export default defineComponent({
       showItem: {
         nombre: "MillGame",
         imagen: MillGame,
-        descripcion: "Un juego desarrollado en canvas basado en final fantasy. en este juego se desafian tus conocimientos generales para poder avanzar y ganar."
+        descripcion: "Un juego desarrollado en canvas basado en final fantasy. en este juego se desafian tus conocimientos generales para poder avanzar y ganar.",
+        lenguajes: ["la-html5", "io-logo-css3", "co-js"]
       },
       imgs: [
         {
           nombre: "MillGame",
           imagen: MillGame,
-          descripcion: "Un juego desarrollado en canvas basado en final fantasy. en este juego se desafian tus conocimientos generales para poder avanzar y ganar."
+          descripcion: "Un juego desarrollado en canvas basado en final fantasy. en este juego se desafian tus conocimientos generales para poder avanzar y ganar.",
+          lenguajes: ["la-html5", "io-logo-css3", "co-js"]
         },
         {
           nombre: "Starbucks",
-          imagen: starbucks
+          imagen: starbucks,
+          descripcion: "Creacion de un diseño basado en la tienda de cafe Starbucks para un proyecto practico",
+          lenguajes: ["la-html5", "io-logo-css3", "co-js", "co-bootstrap"]
+
         }
         ,
         {
           nombre: "Pokemon Api",
-          imagen: Pokemon
+          imagen: Pokemon,
+          descripcion: "Creacion de una pagina web utilizando la api de pokemon para renderizar a los diferentes pokemones y sus caracteristicas",
+          lenguajes: ["la-html5", "io-logo-css3", "co-js"]
+
         }
         ,
         {
           nombre: "Rick And Morty API",
-          imagen: RickAndMorty
+          imagen: RickAndMorty,
+          lenguajes: ["la-html5", "io-logo-css3", "co-js"]
+        }
+        ,
+        {
+          nombre: "Cabellum App",
+          imagen: Cabellum,
+          lenguajes: ["la-html5", "io-logo-css3", "co-js", "co-php", "fa-laravel","co-bootstrap", "io-logo-vue", "co-mysql" ]
+
         }
       ]
     };
@@ -88,7 +106,8 @@ export default defineComponent({
     <Carousel :itemsToShow="2" :wrapAround="true" :transition="500" class="carrusel">
       <Slide v-for="slide in imgs" :key="slide">
         <div class="carousel__item" v-on:click="ShowData" :data-nombre="slide.nombre"
-          :data-descripcion="slide.descripcion" :data-imagen="slide.imagen">
+          :data-descripcion="slide.descripcion" :data-imagen="slide.imagen"
+          :data-lenguajes="slide.lenguajes.join(',')">
           <img :src="slide.imagen" class="img__carrusel__item"
             style="max-width: 500px; min-width: 500px; min-height: 300px; max-height: 300px;">
           <h3>{{ slide.nombre }}</h3>
@@ -108,7 +127,11 @@ export default defineComponent({
 
       <div class="descripcion">
         <h2>{{ showItem.nombre }}</h2>
-        <h3>{{ showItem.descripcion }}</h3>
+        <hr>
+        <h3 v-html="showItem.descripcion"></h3>
+        <h2>Lenguajes</h2>
+        <hr>
+        <v-icon :name="item1" v-for="item1 in showItem.lenguajes" scale="2"/>
       </div>
 
     </div>
@@ -116,6 +139,4 @@ export default defineComponent({
 </template>
 
 
-<style>
-
-</style>
+<style></style>

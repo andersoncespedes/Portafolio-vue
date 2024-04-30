@@ -93,6 +93,11 @@ const routes = [
     component: Carrusel,
     meta: { transition: "slide-left" },
   },
+  {
+    path: "/about",
+    component: About,
+    meta: { transition: "slide-left" },
+  },
 ];
 const router = createRouter({
   history: createMemoryHistory(),
