@@ -8,6 +8,8 @@ import starbucks from '@/assets/Img/starbucks.png';
 import Pokemon from '@/assets/Img/Pokemon.png';
 import RickAndMorty from "@/assets/Img/RickAndMorty.png";
 import Cabellum from "@/assets/Img/Cabellum.png";
+import Farmacia from "@/assets/Img/Farmacia campus.png";
+
 
 
 export default defineComponent({
@@ -45,7 +47,9 @@ export default defineComponent({
         nombre: "MillGame",
         imagen: MillGame,
         descripcion: "Un juego desarrollado en canvas basado en final fantasy. en este juego se desafian tus conocimientos generales para poder avanzar y ganar.",
-        lenguajes: ["la-html5", "io-logo-css3", "co-js"]
+        lenguajes: ["la-html5", "io-logo-css3", "co-js"],
+        web:"https://andersoncespedes.github.io/millgame/",
+        github:"https://github.com/andersoncespedes/millgame"
       },
       imgs: [
         {
@@ -53,6 +57,12 @@ export default defineComponent({
           imagen: MillGame,
           descripcion: "Un juego desarrollado en canvas basado en final fantasy. en este juego se desafian tus conocimientos generales para poder avanzar y ganar.",
           lenguajes: ["la-html5", "io-logo-css3", "co-js"]
+        },
+        {
+          nombre: "Farmacia Campus",
+          imagen: Farmacia,
+          descripcion: "Un juego desarrollado en canvas basado en final fantasy. en este juego se desafian tus conocimientos generales para poder avanzar y ganar.",
+          lenguajes: ["la-html5", "io-logo-css3", "co-js", "co-bootstrap","si-csharp", "si-dotnet", "co-mysql"]
         },
         {
           nombre: "Starbucks",
@@ -73,13 +83,15 @@ export default defineComponent({
         {
           nombre: "Rick And Morty API",
           imagen: RickAndMorty,
+          descripcion: "Creacion de una pagina web utilizando la api de Rick and Morty para la busqueda y recopilacion de los personajes",
           lenguajes: ["la-html5", "io-logo-css3", "co-js"]
         }
         ,
         {
           nombre: "Cabellum App",
           imagen: Cabellum,
-          lenguajes: ["la-html5", "io-logo-css3", "co-js", "co-php", "fa-laravel","co-bootstrap", "io-logo-vue", "co-mysql" ]
+          descripcion: "Aplicacion privada para la gestion de visitas para la empresa venezolana cabellum ",
+          lenguajes: ["la-html5", "io-logo-css3", "co-js", "co-php", "fa-laravel", "co-bootstrap", "io-logo-vue", "co-mysql"]
 
         }
       ]
@@ -106,8 +118,7 @@ export default defineComponent({
     <Carousel :itemsToShow="2" :wrapAround="true" :transition="500" class="carrusel">
       <Slide v-for="slide in imgs" :key="slide">
         <div class="carousel__item" v-on:click="ShowData" :data-nombre="slide.nombre"
-          :data-descripcion="slide.descripcion" :data-imagen="slide.imagen"
-          :data-lenguajes="slide.lenguajes.join(',')">
+          :data-descripcion="slide.descripcion" :data-imagen="slide.imagen" :data-lenguajes="slide.lenguajes.join(',')">
           <img :src="slide.imagen" class="img__carrusel__item"
             style="max-width: 500px; min-width: 500px; min-height: 300px; max-height: 300px;">
           <h3>{{ slide.nombre }}</h3>
@@ -128,15 +139,15 @@ export default defineComponent({
       <div class="descripcion">
         <h2>{{ showItem.nombre }}</h2>
         <hr>
-        <h3 v-html="showItem.descripcion"></h3>
+        <h4 v-html="showItem.descripcion"></h4>
         <h2>Lenguajes</h2>
         <hr>
-        <v-icon :name="item1" v-for="item1 in showItem.lenguajes" scale="2"/>
+        <v-icon :name="item1" v-for="item1 in showItem.lenguajes" scale="2" />
+        <h2>Links</h2>
+        <hr>
+        <a href=""></a>
       </div>
 
     </div>
   </div>
 </template>
-
-
-<style></style>
