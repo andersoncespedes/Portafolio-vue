@@ -41,10 +41,12 @@ import {
   FaHome,
   SiCodeproject,
   FaUserTie,
+  MdWeb,
   MdContacts,
 } from "oh-vue-icons/icons";
 
 addIcons(
+  MdWeb,
   FaFlag,
   RiZhihuFill,
   BiGithub,

@@ -21,6 +21,8 @@ export default defineComponent({
       this.showItem.imagen = node.imagen;
       this.showItem.descripcion = node.descripcion;
       this.showItem.lenguajes = node.lenguajes.split(",");
+      this.showItem.github = node.github;
+      this.showItem.web = node.web;
       this.$refs.item__showing.style.transition = "none";
       new Promise(
         (resolve, reject) => {
@@ -48,27 +50,32 @@ export default defineComponent({
         imagen: MillGame,
         descripcion: "Un juego desarrollado en canvas basado en final fantasy. en este juego se desafian tus conocimientos generales para poder avanzar y ganar.",
         lenguajes: ["la-html5", "io-logo-css3", "co-js"],
-        web:"https://andersoncespedes.github.io/millgame/",
-        github:"https://github.com/andersoncespedes/millgame"
+        web: "https://andersoncespedes.github.io/millgame/",
+        github: "https://github.com/andersoncespedes/millgame"
       },
       imgs: [
         {
           nombre: "MillGame",
           imagen: MillGame,
           descripcion: "Un juego desarrollado en canvas basado en final fantasy. en este juego se desafian tus conocimientos generales para poder avanzar y ganar.",
-          lenguajes: ["la-html5", "io-logo-css3", "co-js"]
+          lenguajes: ["la-html5", "io-logo-css3", "co-js"],
+          web: "https://andersoncespedes.github.io/millgame/",
+          github: "https://github.com/andersoncespedes/millgame"
         },
         {
           nombre: "Farmacia Campus",
           imagen: Farmacia,
           descripcion: "Un juego desarrollado en canvas basado en final fantasy. en este juego se desafian tus conocimientos generales para poder avanzar y ganar.",
-          lenguajes: ["la-html5", "io-logo-css3", "co-js", "co-bootstrap","si-csharp", "si-dotnet", "co-mysql"]
+          lenguajes: ["la-html5", "io-logo-css3", "co-js", "co-bootstrap", "si-csharp", "si-dotnet", "co-mysql"],
+          github: "https://github.com/julianlpz69/FarmaciaCampus"
         },
         {
           nombre: "Starbucks",
           imagen: starbucks,
           descripcion: "Creacion de un diseño basado en la tienda de cafe Starbucks para un proyecto practico",
-          lenguajes: ["la-html5", "io-logo-css3", "co-js", "co-bootstrap"]
+          lenguajes: ["la-html5", "io-logo-css3", "co-js", "co-bootstrap"],
+          web: "https://andersoncespedes.github.io/PushUpFrontEnd/",
+          github: "https://github.com/andersoncespedes/PushUpFrontEnd"
 
         }
         ,
@@ -76,7 +83,9 @@ export default defineComponent({
           nombre: "Pokemon Api",
           imagen: Pokemon,
           descripcion: "Creacion de una pagina web utilizando la api de pokemon para renderizar a los diferentes pokemones y sus caracteristicas",
-          lenguajes: ["la-html5", "io-logo-css3", "co-js"]
+          lenguajes: ["la-html5", "io-logo-css3", "co-js"],
+          web: "https://andersoncespedes.github.io/pokemon-api/",
+          github: "https://github.com/andersoncespedes/pokemon-api"
 
         }
         ,
@@ -84,14 +93,17 @@ export default defineComponent({
           nombre: "Rick And Morty API",
           imagen: RickAndMorty,
           descripcion: "Creacion de una pagina web utilizando la api de Rick and Morty para la busqueda y recopilacion de los personajes",
-          lenguajes: ["la-html5", "io-logo-css3", "co-js"]
+          lenguajes: ["la-html5", "io-logo-css3", "co-js"],
+          web: "https://andersoncespedes.github.io/practicajs/",
+          github: "https://github.com/andersoncespedes/practicajs"
         }
         ,
         {
           nombre: "Cabellum App",
           imagen: Cabellum,
           descripcion: "Aplicacion privada para la gestion de visitas para la empresa venezolana cabellum ",
-          lenguajes: ["la-html5", "io-logo-css3", "co-js", "co-php", "fa-laravel", "co-bootstrap", "io-logo-vue", "co-mysql"]
+          lenguajes: ["la-html5", "io-logo-css3", "co-js", "co-php", "fa-laravel", "co-bootstrap", "io-logo-vue", "co-mysql"],
+          github: "https://github.com/Daivis-Anderson/sistema-visitas"
 
         }
       ]
@@ -118,7 +130,7 @@ export default defineComponent({
     <Carousel :itemsToShow="2" :wrapAround="true" :transition="500" class="carrusel">
       <Slide v-for="slide in imgs" :key="slide">
         <div class="carousel__item" v-on:click="ShowData" :data-nombre="slide.nombre"
-          :data-descripcion="slide.descripcion" :data-imagen="slide.imagen" :data-lenguajes="slide.lenguajes.join(',')">
+          :data-descripcion="slide.descripcion" :data-imagen="slide.imagen" :data-lenguajes="slide.lenguajes.join(',')" :data-github="slide.github" :data-web="slide.web">
           <img :src="slide.imagen" class="img__carrusel__item"
             style="max-width: 500px; min-width: 500px; min-height: 300px; max-height: 300px;">
           <h3>{{ slide.nombre }}</h3>
@@ -145,7 +157,9 @@ export default defineComponent({
         <v-icon :name="item1" v-for="item1 in showItem.lenguajes" scale="2" />
         <h2>Links</h2>
         <hr>
-        <a href=""></a>
+        <a :href="showItem.github" target="_blank"><v-icon name="bi-github" scale="2"></v-icon></a>
+        <a v-if="showItem.web" :href="showItem.web" target="_blank"><v-icon name="md-web" scale="2"></v-icon></a>
+
       </div>
 
     </div>
