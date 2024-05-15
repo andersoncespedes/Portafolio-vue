@@ -29,13 +29,13 @@ export default {
                     date: "2020-04-30"
                 },
                 {
-                    title: "Ingeniero en Informatica",
-                    description: "Descripción del evento 2",
-                    date: "2022-12-16"
+                    title: "Soporte Tecnico Departamento Informatica",
+                    description: "Me hice parte del equipo de desarrollo y soporte tecnico de la acaldia Angostrua del Orinoco en Venezuela ciudad Bolivar, estado Bolivar",
+                    date: "2021-12-16"
                 },
                 {
-                    title: "Evento 3",
-                    description: "Descripción del evento 3",
+                    title: "Ingeniero En Informatica",
+                    description: "Obtuve mi titulo de tecnico superior en informatica, luego de realizar un proyecto sociotecnologico en una institucion Gubernamental",
                     date: "2024-05-02"
                 }
             ]

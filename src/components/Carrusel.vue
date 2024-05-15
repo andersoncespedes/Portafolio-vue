@@ -127,7 +127,8 @@ export default defineComponent({
       </center>
     </div>
 
-    <Carousel :itemsToShow="2" :wrapAround="true" :transition="500" class="carrusel">
+    <Carousel :itemsToShow="2" 
+     :transition="500" class="carrusel">
       <Slide v-for="slide in imgs" :key="slide">
         <div class="carousel__item" v-on:click="ShowData" :data-nombre="slide.nombre"
           :data-descripcion="slide.descripcion" :data-imagen="slide.imagen" :data-lenguajes="slide.lenguajes.join(',')" :data-github="slide.github" :data-web="slide.web">
